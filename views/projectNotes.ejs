@@ -1,0 +1,71 @@
+<html>
+    <style>
+        form{
+            margin: auto;
+            width: 350px;
+            border: 1px solid black;
+            padding-top: 20px;
+            padding-right: 0;
+            padding-bottom: 20px;
+            padding-left: 0;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        form label{
+            float: left;
+            margin-left: 26px;
+            font-size: 17px;
+        }
+
+        .projTitle,.projDes,.dates,.submit{
+            margin-top: 20px;
+        }
+
+        .dates .dueDate{
+            margin-top: 20px;
+        }
+
+        .submit input{
+            border: 1px solid blue;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+        }
+
+        input{
+            height: 40px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        textarea{
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <h1 style="text-align: center;"><em><%- title %></em></h1>
+        <form action="/addNotes" method="post" autocomplete="off">
+            <div class="projTitle">
+                <label>Project ID: &nbsp;&nbsp;<%= proj.id %></label><br>
+                <!-- <label>Project ID:</label> -->
+                <input type="hidden" name="project_id" value="<%= proj.id %>">
+            </div>
+            <div class="projDes">
+                <label>Project Notes:</label><br>
+                <textarea cols="38" rows="5"  name="p_notes" required></textarea>
+            </div>
+            <div class="dates">
+                <div class="startDate">
+                    <label>Active Date:</label>
+                    <input type="date"  name="active_dt" required>
+                </div>
+
+                <div class="submit">
+                    <input type="submit" name="ADD PROJECT">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

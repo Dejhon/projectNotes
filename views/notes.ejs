@@ -1,0 +1,56 @@
+<html>
+    <style>
+        table{
+            margin: auto;
+            width: 100%;
+            border: 1px solid blue;
+        }
+        td{
+            text-align: left;
+            padding: 8px;
+        }
+        th{
+            padding: 8px;
+        }
+        .note{
+            text-align: left;
+        }
+        .btn{
+            text-align: center;
+        }
+        button{
+            background-color: green;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button a {
+            text-decoration: none;
+            color:white;
+        }
+    </style>
+    <body>
+        <h1><em><%- title %></em></h1>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Project ID</th>
+                <th>Project Notes</th>
+                <th>Active Date</th>
+                <th>Actions</th>
+            </tr>
+            <% notes.forEach(function(note){ %>
+            <tr>
+                <td><%= note.id %></td>
+                <td><%= note.project_id %></td>
+                <td class="note"><%= note.notes %></td>
+                <td><%= note.active_dt.toDateString().slice(3) %></td>
+                <td class="btn">
+                    <button><a href="/notesEdit/<%= note.id %>">Edit</a></button>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+    </body>
+</html>

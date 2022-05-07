@@ -1,0 +1,71 @@
+<html>
+    <style>
+        form{
+            margin: auto;
+            width: 350px;
+            border: 1px solid black;
+            padding-top: 20px;
+            padding-right: 0;
+            padding-bottom: 20px;
+            padding-left: 0;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        form label{
+            float: left;
+            margin-left: 26px;
+            font-size: 17px;
+        }
+
+        .projTitle,.projDes,.dates,.submit{
+            margin-top: 20px;
+        }
+
+        .dates .dueDate{
+            margin-top: 20px;
+        }
+
+        .submit input{
+            border: 1px solid blue;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+        }
+
+        input{
+            height: 40px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        textarea{
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <h1 style="text-align: center;"><em><%- title %></em></h1>
+        <form action="/update" method="post" autocomplete="off">
+            <input type="hidden" value="<%= proj.id %>" name="id">
+            <div class="projTitle">
+                <label>Project Title:</label>
+                <input type="text" value="<%= proj.project_title %>" name="ptitle" required>
+            </div>
+            <div class="projDes">
+                <label>Project Description:</label><br>
+                <textarea cols="38" rows="5" value="" name="p_des" required><%= proj.project_description %></textarea>
+            </div>
+            <div class="dates">
+                <div class="dueDate">
+                    <label>Due Date: </label>
+                    <input type="date"  value="<%= proj.project_due_dt %>" name="p_due_dt" required >
+                </div>
+
+                <div class="submit">
+                    <input type="submit" name="ADD PROJECT">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
